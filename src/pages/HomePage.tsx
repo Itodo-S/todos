@@ -31,7 +31,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full dark:bg-gray-800 transition-all duration-500 h-screen">
+    <div className="flex flex-col items-center w-full dark:bg-gray-800 transition-all duration-500 min-h-screen">
       <Header />
       <TodoForm addTodo={addTodo} />
       <ContentCard

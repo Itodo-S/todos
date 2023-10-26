@@ -1,5 +1,5 @@
 .content-card {
-  @apply flex w-4/5 flex-col py-6 px-4 mt-8 rounded-lg  bg-white dark:bg-gray-800 dark:border-slate-600 transition-all duration-500;
+  @apply flex w-11/12 md:w-4/5 flex-col py-6 px-4 mt-8 rounded-lg  bg-white dark:bg-gray-800 dark:border-slate-600 transition-all duration-500;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
   &__header {
@@ -11,7 +11,7 @@
   }
 
   &__search {
-    @apply w-2/6;
+    @apply  w-1/2 md:w-2/6;
 
     input {
       @apply border outline-none rounded-md h-9 px-2 w-full bg-transparent dark:border-slate-500 dark:text-white;
@@ -19,7 +19,7 @@
   }
 
   &__clear-button {
-    @apply bg-blue-500 text-white font-semibold w-28 h-9 px-3 rounded-md hover:bg-blue-400 transition-all duration-500;
+    @apply bg-blue-500 text-white font-semibold text-xs w-16 md:w-28 h-9 px-3 rounded-md hover:bg-blue-400 transition-all duration-500;
   }
 }
 
