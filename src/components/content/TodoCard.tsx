@@ -1,5 +1,4 @@
 import { BsTrash3Fill } from "react-icons/bs";
-import { FiEdit } from "react-icons/fi";
 import { AiOutlineCopy } from "react-icons/ai";
 
 interface TodoCardProps {
@@ -36,9 +35,6 @@ const TodoCard: React.FC<TodoCardProps> = ({
         <div className="flex gap-1">
           <div className="icon-case border-green-500">
             <AiOutlineCopy color="green" onClick={handleCopyTodo} />
-          </div>
-          <div className="icon-case border-blue-500">
-            <FiEdit color="blue" />
           </div>
           <div className="icon-case border-red-500" onClick={onDelete}>
             <BsTrash3Fill color="red" />

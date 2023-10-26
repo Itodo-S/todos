@@ -3,6 +3,7 @@ import { TodoForm } from "../components/todoForm";
 import { ContentCard } from "../components/content";
 import React from "react";
 import { Todo } from "../interfaces/types";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   // Load todos from local storage on initial render
@@ -39,6 +40,16 @@ const HomePage = () => {
         clearAllTodos={clearAllTodos}
         onDeleteTodo={onDeleteTodo}
       />
+
+      <footer className="mt-10 md:w-4/5 w-11/12  flex justify-between items-center">
+        <p className="text-slate-500 text-xs">
+          © 2023 Todos. All Rights Reserved.
+        </p>
+
+        <Link className="text-slate-500 text-xs" to="/about">
+          About Page
+        </Link>
+      </footer>
     </div>
   );
 };
