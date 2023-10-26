@@ -4,6 +4,7 @@ import { AiOutlineCopy } from "react-icons/ai";
 
 interface TodoCardProps {
   todo: string;
+  category: string;
   date: string;
   onDelete: () => void;
   onCopy: (text: string) => void;
@@ -11,6 +12,7 @@ interface TodoCardProps {
 
 const TodoCard: React.FC<TodoCardProps> = ({
   todo,
+  category,
   date,
   onDelete,
   onCopy,
@@ -49,7 +51,7 @@ const TodoCard: React.FC<TodoCardProps> = ({
       </div>
 
       <div className="flex justify-end">
-        <p className="font-semibold text-xs text-green-400">Groceries</p>
+        <p className="font-semibold text-xs text-green-400">{category}</p>
       </div>
     </div>
   );

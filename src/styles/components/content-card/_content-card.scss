@@ -11,7 +11,7 @@
   }
 
   &__search {
-    @apply  w-1/2 md:w-2/6;
+    @apply  w-1/2 md:w-9/12 flex items-center;
 
     input {
       @apply border outline-none rounded-md h-9 px-2 w-full bg-transparent dark:border-slate-500 dark:text-white;
