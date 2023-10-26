@@ -8,20 +8,23 @@ interface Todo {
 
 interface ContentCardProps {
   todos: Todo[];
+  clearAllTodos: () => void;
 }
 
-const ContentCard: React.FC<ContentCardProps> = ({ todos }) => {
+const ContentCard: React.FC<ContentCardProps> = ({ todos, clearAllTodos }) => {
   return (
     <div className="content-card">
       <div className="content-card__header">
         <div className="content-card__header-left">
           <p className="">Todo</p>
           <div className="rounded-full px-2 py-1 border dark:border-slate-500 ml-3">
-            <p className="text-xs">1</p>
+            <p className="text-xs">{todos.length}</p>
           </div>
         </div>
 
-        <button className="content-card__clear-button">Clear All</button>
+        <button onClick={clearAllTodos} className="content-card__clear-button">
+          Clear All
+        </button>
       </div>
 
       <hr className="dark:border-slate-500 mt-5" />
