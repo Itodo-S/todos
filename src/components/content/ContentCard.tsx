@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoCard from "./TodoCard";
+import { toast } from "react-toastify";
 
 interface Todo {
   todo: string;
@@ -9,9 +10,14 @@ interface Todo {
 interface ContentCardProps {
   todos: Todo[];
   clearAllTodos: () => void;
+  onDeleteTodo: (index: number) => void;
 }
 
-const ContentCard: React.FC<ContentCardProps> = ({ todos, clearAllTodos }) => {
+const ContentCard: React.FC<ContentCardProps> = ({
+  todos,
+  clearAllTodos,
+  onDeleteTodo,
+}) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredTodos = todos.filter((todo) =>
@@ -20,6 +26,21 @@ const ContentCard: React.FC<ContentCardProps> = ({ todos, clearAllTodos }) => {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
+  };
+
+  const handleCopyTodo = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      toast.success(`Text copied to clipboard: ${text}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    });
   };
 
   return (
@@ -51,7 +72,13 @@ const ContentCard: React.FC<ContentCardProps> = ({ todos, clearAllTodos }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-5">
         {filteredTodos.map((todo, index) => (
-          <TodoCard key={index} date={todo.date} todo={todo.todo} />
+          <TodoCard
+            key={index}
+            date={todo.date}
+            todo={todo.todo}
+            onDelete={() => onDeleteTodo(index)}
+            onCopy={handleCopyTodo}
+          />
         ))}
       </div>
     </div>

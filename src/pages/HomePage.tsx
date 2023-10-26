@@ -23,11 +23,22 @@ const HomePage = () => {
     setTodos([]);
   };
 
+  const onDeleteTodo = (index: number) => {
+    // Delete the todo at the specified index
+    const updatedTodos = [...todos];
+    updatedTodos.splice(index, 1);
+    setTodos(updatedTodos);
+  };
+
   return (
     <div className="flex flex-col items-center w-full dark:bg-gray-800 transition-all duration-500 h-screen">
       <Header />
       <TodoForm addTodo={addTodo} />
-      <ContentCard todos={todos} clearAllTodos={clearAllTodos} />
+      <ContentCard
+        todos={todos}
+        clearAllTodos={clearAllTodos}
+        onDeleteTodo={onDeleteTodo}
+      />
     </div>
   );
 };

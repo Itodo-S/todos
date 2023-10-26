@@ -5,15 +5,26 @@ import { AiOutlineCopy } from "react-icons/ai";
 interface TodoCardProps {
   todo: string;
   date: string;
+  onDelete: () => void;
+  onCopy: (text: string) => void;
 }
 
-const TodoCard: React.FC<TodoCardProps> = ({ todo, date }) => {
-  // Convert the input date string to a Date object
+const TodoCard: React.FC<TodoCardProps> = ({
+  todo,
+  date,
+  onDelete,
+  onCopy,
+}) => {
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",
   });
+
+  const handleCopyTodo = () => {
+    // Call the onCopy callback with the todo text
+    onCopy(todo);
+  };
 
   return (
     <div className="todo-card">
@@ -22,12 +33,12 @@ const TodoCard: React.FC<TodoCardProps> = ({ todo, date }) => {
 
         <div className="flex gap-1">
           <div className="icon-case border-green-500">
-            <AiOutlineCopy color="green" />
+            <AiOutlineCopy color="green" onClick={handleCopyTodo} />
           </div>
           <div className="icon-case border-blue-500">
             <FiEdit color="blue" />
           </div>
-          <div className="icon-case border-red-500">
+          <div className="icon-case border-red-500" onClick={onDelete}>
             <BsTrash3Fill color="red" />
           </div>
         </div>
