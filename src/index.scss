@@ -5,3 +5,7 @@
 body {
   margin: 0;
 }
+
+.icon-case {
+  @apply border rounded-md p-1 cursor-pointer hover:scale-105;
+}

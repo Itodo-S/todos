@@ -1,0 +1,20 @@
+.content-card {
+  @apply flex w-4/5 flex-col py-6 px-4 mt-8 rounded-lg  bg-white dark:bg-gray-800 dark:border-slate-600 transition-all duration-500;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+  &__header {
+    @apply flex w-full items-center justify-between;
+  }
+
+  &__header-left {
+    @apply flex items-center text-slate-500 dark:text-slate-300 text-lg font-semibold;
+  }
+
+  &__clear-button {
+    @apply bg-blue-500 text-white font-semibold w-28 h-9 px-3 rounded-md hover:bg-blue-400 transition-all duration-500;
+  }
+}
+
+.todo-card {
+  @apply w-full bg-white dark:bg-gray-800 border dark:border-slate-600 transition-all duration-500 border-l-blue-400   dark:border-l-blue-400  border-l-8 pt-5 pb-3 px-3 rounded-md;
+}
