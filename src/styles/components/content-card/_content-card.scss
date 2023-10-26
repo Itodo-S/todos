@@ -10,6 +10,14 @@
     @apply flex items-center text-slate-500 dark:text-slate-300 text-lg font-semibold;
   }
 
+  &__search {
+    @apply w-2/6;
+
+    input {
+      @apply border outline-none rounded-md h-9 px-2 w-full bg-transparent dark:border-slate-500 dark:text-white;
+    }
+  }
+
   &__clear-button {
     @apply bg-blue-500 text-white font-semibold w-28 h-9 px-3 rounded-md hover:bg-blue-400 transition-all duration-500;
   }
